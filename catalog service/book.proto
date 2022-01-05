@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package catalog;
+
+service BookService {
+    rpc Create(Book) returns (Book);
+    rpc Get(ByIdReq) returns (Book);
+    rpc Update(Book) returns (Book);
+    rpc Delete(ByIdReq) returns (EmptyRes);
+}
+
+message EmptyRes{}
+
+message Book {
+    string id = 1;
+    string name = 2;
+    string author_id = 3;
+    string created_at = 4;
+    string update_at = 5;
+}
+
+message ByIdReq {
+    string id = 1;
+}
