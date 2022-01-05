@@ -5,6 +5,7 @@ package catalog;
 service BookService {
     rpc Create(Book) returns (Book);
     rpc Get(ByIdReq) returns (Book);
+    rpc List(ListReq) returns (ListResp);
     rpc Update(Book) returns (Book);
     rpc Delete(ByIdReq) returns (EmptyRes);
 }
@@ -21,4 +22,14 @@ message Book {
 
 message ByIdReq {
     string id = 1;
+}
+
+message ListReq {
+    int64 page = 1;
+    int64 limit = 2;
+}
+
+message ListResp {
+    repeated Book books = 1;
+    int64 count = 2;
 }
