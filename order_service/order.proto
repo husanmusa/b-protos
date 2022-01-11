@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package catalog;
+package book;
 
 service OrderService {
     rpc Create(Order) returns (Book);
